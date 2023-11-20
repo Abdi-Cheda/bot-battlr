@@ -42,9 +42,13 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to Bot Battlr</h1>
-      <BotCollection bots={bots} addToArmy={addToArmy} />
-      <BotArmy botArmy={botArmy} removeFromArmy={removeFromArmy} deleteBot={deleteBot} />
-    </div>
+      <div className="botArmyContainer">
+    <BotArmy botArmy={botArmy} removeFromArmy={removeFromArmy} deleteBot={deleteBot} />
+  </div>
+  <div className="botCollectionContainer">
+    <BotCollection bots={bots} addToArmy={addToArmy} />
+  </div>
+  </div>
   );
 }
 
