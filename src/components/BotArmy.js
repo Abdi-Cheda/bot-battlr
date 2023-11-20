@@ -1,22 +1,46 @@
 import React from 'react';
 
 function BotArmy({ botArmy, removeFromArmy, deleteBot }) {
-    console.log('BotArmy props:', botArmy); // Check the received botArmy here
   if (!botArmy || botArmy.length === 0) {
-    return <div>No bots enlisted in the army yet!</div>;
+    return <div className="YourBotArmy">No bots enlisted in the army yet!</div>;
   }
+
+  // Helper function to chunk the bot array into smaller arrays of size 20
+  const chunkArray = (arr, size) => {
+    return arr.reduce((chunks, el, i) => {
+      if (i % size === 0) {
+        chunks.push([el]);
+      } else {
+        chunks[chunks.length - 1].push(el);
+      }
+      return chunks;
+    }, []);
+  };
+
+  // Chunk the botArmy into arrays of 20 bots per row
+  const botChunks = chunkArray(botArmy, 20);
 
   return (
     <div className="YourBotArmy">
       <h2>Your Bot Army</h2>
-      {botArmy.map((bot) => (
-        <div key={bot.id}>
-          <h3>{bot.name}</h3>
-          <img src={bot.avatar_url} alt={bot.name} />
-          <button onClick={() => removeFromArmy(bot.id)}>Release</button>
-          <button onClick={() => deleteBot(bot.id)}>x</button>
-        </div>
-      ))}
+      <div className="botArmyContainer">
+        {botChunks.map((chunk, rowIndex) => (
+          <div className="botRow" key={rowIndex}>
+            {chunk.map((bot) => (
+              <div className="BotCard" key={bot.id}>
+                <h3>{bot.name}</h3>
+                <img src={bot.avatar_url} alt={bot.name} />
+                <button onClick={() => removeFromArmy(bot.id)}>Release</button>
+                <button onClick={() => deleteBot(bot.id)}>x</button>
+              </div>
+            ))}
+            {/* Filling the row with empty divs to ensure 20 cards per row */}
+            {Array.from({ length: 20 - chunk.length }).map((_, index) => (
+              <div className="BotCard empty" key={`empty-${index}`} />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

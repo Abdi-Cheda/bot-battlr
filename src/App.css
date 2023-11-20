@@ -6,30 +6,42 @@
   padding: 20px;
 }
 
-/* BotArmy container styles */
-.botArmyContainer {
-  width: 100%;
-  max-width: 800px; /* Adjust the width as needed */
-  margin-bottom: 20px; /* Spacing between BotArmy and BotCollection */
-  background-color: #f0f0f0; /* Example background color */
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example box shadow */
+/* YourBotArmy container styles */
+.YourBotArmy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
-/* BotCollection container styles */
+/* BotArmy container for bot rows */
 .botCollectionContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust column width as needed */
-  gap: 20px; /* Spacing between cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Bot card styles */
+/* Styling for each row of bots */
+.botRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Adjust spacing between rows */
+}
+
+/* Styling for bot cards */
 .BotCard {
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 10px; /* Adjust spacing between cards */
+  /* Additional styles as needed */
+}
+
+/* Styling for empty divs to ensure 20 cards per row */
+.empty {
+  visibility: hidden;
+  width: calc(100% / 20 - 10px); /* Adjust width to fit 20 cards in a row */
 }
 
 .App-logo {

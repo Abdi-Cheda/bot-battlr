@@ -4,7 +4,7 @@ function BotCollection({ bots, addToArmy }) {
   return (
     <div className="BotCollection">
       <h2>All Bots</h2>
-      <div className="botCardContainer">
+      <div className="botCollectionContainer">
         {bots.map((bot) => (
           <div className="BotCard" key={bot.id}>
             <h3>{bot.name}</h3>
