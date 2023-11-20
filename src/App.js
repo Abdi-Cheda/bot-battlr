@@ -4,7 +4,7 @@ import BotArmy from './components/BotArmy';
 
 function App() {
   const [bots, setBots] = useState([]);
-  const [BotArmy, setBotArmy] = useState([]);
+  const [botArmy, setBotArmy] = useState([]); // Renamed state variable to botArmy
 
   useEffect(() => {
     fetch('http://localhost:8001/bots')
@@ -14,13 +14,13 @@ function App() {
   }, []);
 
   const addToArmy = (bot) => {
-    if (!BotArmy.find((b) => b.id === bot.id)) {
-      setBotArmy([...BotArmy, bot]);
+    if (!botArmy.find((b) => b.id === bot.id)) {
+      setBotArmy([...botArmy, bot]);
     }
   };
 
   const removeFromArmy = (botId) => {
-    const updatedArmy = BotArmy.filter((bot) => bot.id !== botId);
+    const updatedArmy = botArmy.filter((bot) => bot.id !== botId);
     setBotArmy(updatedArmy);
   };
 
@@ -40,7 +40,7 @@ function App() {
     <div className="App">
       <h1>Welcome to Bot Battlr</h1>
       <BotCollection bots={bots} addToArmy={addToArmy} />
-      <BotArmy BotArmy={BotArmy} removeFromArmy={removeFromArmy} deleteBot={deleteBot} />
+      <BotArmy botArmy={botArmy} removeFromArmy={removeFromArmy} deleteBot={deleteBot} />
     </div>
   );
 }

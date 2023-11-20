@@ -1,10 +1,14 @@
 import React from 'react';
 
-function BotArmy({ BotArmy, removeFromArmy, deleteBot }) {
+function BotArmy({ botArmy, removeFromArmy, deleteBot }) {
+  if (!botArmy || botArmy.length === 0) {
+    return <div>No bots enlisted in the army yet!</div>;
+  }
+
   return (
-    <div className="BotArmy">
-      <h2>Bot Army</h2>
-      {BotArmy.map((bot) => (
+    <div className="YourBotArmy">
+      <h2>Your Bot Army</h2>
+      {botArmy.map((bot) => (
         <div key={bot.id}>
           <h3>{bot.name}</h3>
           <img src={bot.avatar_url} alt={bot.name} />
