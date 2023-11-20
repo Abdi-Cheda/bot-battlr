@@ -7,7 +7,7 @@ function App() {
   const [botArmy, setBotArmy] = useState([]); // Renamed state variable to botArmy
 
   useEffect(() => {
-    fetch('http://localhost:8001/bots')
+    fetch('https://dbbots.onrender.com/bots')
       .then((response) => response.json())
       .then((data) => setBots(data))
       .catch((error) => console.error('Error fetching data:', error));
@@ -28,7 +28,7 @@ function App() {
   };
 
   const deleteBot = (botId) => {
-    fetch(`http://localhost:8001/bots/${botId}`, {
+    fetch(`https://dbbots.onrender.com/bots/${botId}`, {
       method: 'DELETE',
     })
       .then(() => {
