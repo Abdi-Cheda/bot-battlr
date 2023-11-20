@@ -1,6 +1,7 @@
 import React from 'react';
 
 function BotArmy({ botArmy, removeFromArmy, deleteBot }) {
+    console.log('BotArmy props:', botArmy); // Check the received botArmy here
   if (!botArmy || botArmy.length === 0) {
     return <div>No bots enlisted in the army yet!</div>;
   }

@@ -14,10 +14,13 @@ function App() {
   }, []);
 
   const addToArmy = (bot) => {
+    console.log('Adding bot to army:', bot);
     if (!botArmy.find((b) => b.id === bot.id)) {
-      setBotArmy([...botArmy, bot]);
+      console.log('Bot not found in army, adding...');
+      setBotArmy((prevBotArmy) => [...prevBotArmy, bot]);
     }
   };
+  
 
   const removeFromArmy = (botId) => {
     const updatedArmy = botArmy.filter((bot) => bot.id !== botId);
