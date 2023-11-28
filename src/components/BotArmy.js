@@ -5,7 +5,6 @@ function BotArmy({ botArmy, removeFromArmy, deleteBot }) {
     return <div className="YourBotArmy">No bots enlisted in the army yet!</div>;
   }
 
-  // Helper function to chunk the bot array into smaller arrays of size 20
   const chunkArray = (arr, size) => {
     return arr.reduce((chunks, el, i) => {
       if (i % size === 0) {
@@ -16,8 +15,6 @@ function BotArmy({ botArmy, removeFromArmy, deleteBot }) {
       return chunks;
     }, []);
   };
-
-  // Chunk the botArmy into arrays of 20 bots per row
   const botChunks = chunkArray(botArmy, 20);
 
   return (
@@ -34,7 +31,7 @@ function BotArmy({ botArmy, removeFromArmy, deleteBot }) {
                 <button onClick={() => deleteBot(bot.id)}>x</button>
               </div>
             ))}
-            {/* Filling the row with empty divs to ensure 20 cards per row */}
+          
             {Array.from({ length: 20 - chunk.length }).map((_, index) => (
               <div className="BotCard empty" key={`empty-${index}`} />
             ))}
