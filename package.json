@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Abdi-Cheda.github.io/bot-battlr",
+  "homepage": "https://abdi-cheda.github.io/bot-battlr",
   "name": "bot-battlr",
   "version": "0.1.0",
   "private": true,
@@ -18,10 +18,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "deploy"
+    "proxy": "https://fitness-hub-g8e1.onrender.com",
+    "server": "https://fitness-hub-g8e1.onrender.com/transactions",
+    "dev": "npm-run-all -p start server"
   },
   "eslintConfig": {
     "extends": [

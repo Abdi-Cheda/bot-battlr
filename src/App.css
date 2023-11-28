@@ -1,4 +1,3 @@
-/* App container styles */
 .App {
   display: flex;
   flex-direction: column;
@@ -6,7 +5,6 @@
   padding: 20px;
 }
 
-/* YourBotArmy container styles */
 .YourBotArmy {
   display: flex;
   flex-direction: column;
@@ -14,34 +12,30 @@
   margin-top: 20px;
 }
 
-/* BotArmy container for bot rows */
 .botCollectionContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Styling for each row of bots */
 .botRow {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px; /* Adjust spacing between rows */
+  margin-bottom: 20px;
 }
 
-/* Styling for bot cards */
 .BotCard {
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-right: 10px; /* Adjust spacing between cards */
-  /* Additional styles as needed */
+  margin-right: 10px;
+
 }
 
-/* Styling for empty divs to ensure 20 cards per row */
 .empty {
   visibility: hidden;
-  width: calc(100% / 20 - 10px); /* Adjust width to fit 20 cards in a row */
+  width: calc(100% / 20 - 10px);
 }
 
 .App-logo {

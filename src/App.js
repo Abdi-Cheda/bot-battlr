@@ -4,8 +4,7 @@ import BotArmy from './components/BotArmy';
 
 function App() {
   const [bots, setBots] = useState([]);
-  const [botArmy, setBotArmy] = useState([]); // Renamed state variable to botArmy
-
+  const [botArmy, setBotArmy] = useState([]);
   useEffect(() => {
     fetch('https://dbbots.onrender.com/bots')
       .then((response) => response.json())
